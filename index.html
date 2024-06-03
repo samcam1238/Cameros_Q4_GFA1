@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id = "uf" onsubmit = "processInfo(event)">
+    <fieldset id = "firstbox">
+
+        <label for = "fn"> Name: </label>
+        <input type = "text" id = "fn" name = "fname" onblur = "borderr(fn)" onfocus = "borderg(fn)">
+        <br><br>  
+        <label for = "un"> Username: </label>
+        <input type = "text" id = "un" name = "uname" required onblur = "borderr(un)" onfocus = "borderg(un)">
+        <br><br>
+        <label for = "em"> Email: </label>
+        <input type = "email" id = "em" name = "email" required onblur = "borderr(em)" onfocus = "borderg(em)">
+        <br><br>
+        <label for = "ad"> Home Address: </label>
+        <input type = "text" id = "ad" name = "haddress" required onblur = "borderr(ad)" onfocus = "borderg(ad)">
+        <br><br>
+        <label for = "pw"> Password: </label>
+        <input type = "password" id ="pw" name = "pword" required onblur = "borderr(pw)" onfocus = "borderg(pw)">
+        <br><br>
+
+        <label for = "sg"> Select Gender: </label>
+        <select name = "gender" id= "sg" required onblur = "borderr(sg)" onfocus = "borderg(sg)">
+            <option value = "Male" > Male </option>
+            <option value = "Female"> Female </option>
+            <option value = "Prefer not to say"> Prefer Not To Say </option>
+        </select>
+        <br><br>
+        <label for = "int"> Interests: </label>
+        <textarea id= "int" name= "interest" required onblur = "borderr(int)" onfocus = "borderg(int)"></textarea>
+        <br><br>
+
+    <button type= "submit"> Submit </button>
+    </fieldset>
+  
+    <fieldset id = "secondbox">
+        <legend> Information </legend>
+            <p id = "display"></p>
+            <button type = "reset" value = "Reset"  onclick="res()"> Reset</button>
+    </fieldset>
+  </form>
+  <div id = "display"></div>
+  
+  <script>
+    function processInfo(event) {
+      event.preventDefault();
+
+      var fullname = document.getElementById('fn').value;
+      var username = document.getElementById('un').value;
+      var email = document.getElementById('em').value;
+      var homeaddress = document.getElementById('ad').value;
+      var password = document.getElementById('pw').value;
+      var gender = document.getElementById('sg').value;
+      var interests = document.getElementById('int').value;
+
+      var datas = "Full Name: " + fullname  
+      + "<br> Username: " + username 
+      + "<br> Email: " + email 
+      + "<br> Address: " + homeaddress 
+      + "<br> Gender: " + gender 
+      + "<br> Interests: " + interests;
+
+      var presentdatas = document.getElementById('display');
+      presentdatas.innerHTML = datas; 
+    }
+
+    function borderr(id) {
+    if (id.value.trim() === '') {
+        id.style.border = "2px solid red";
+
+    } else {
+        id.style.border = "2px solid lime";
+
+    }
+}
+
+    function borderg(id) {
+    id.style.border = "2px solid lime";
+    }
+
+    function res(){
+        var p = document.getElementById("printout");
+        display.innerHTML = "";
+    }
+
+    function res() {
+        var d = document.getElementById("display");
+
+        d.innerHTML='';
+    }
+
+    </script>
+</body>
+</html>
+
+  
+  
